@@ -13,13 +13,18 @@ if [ "$1" = "-y" ]; then
 fi
 
 # install dependencies depending on the OS
+# and set user and user home directory
 
 # if ran on fedora, install clang cmake gtk3-devel ninja-build
 if [ -f /etc/fedora-release ]; then
     sudo dnf install -y clang cmake gtk3-devel ninja-build
+    user=$USER
+    home=$HOME
 # else if ran on ubuntu, install clang cmake libgtk-3-dev ninja-build
 elif [ -f /etc/lsb-release ]; then
     sudo apt install -y clang cmake libgtk-3-dev ninja-build
+    user=$SUDO_USER
+    home=$(getent passwd "$SUDO_USER" | cut -d: -f6)
 else
     echo "Your OS is not supported"
     exit 1
@@ -34,11 +39,12 @@ CMDLINE_TOOLS_BIN="$CMDLINE_TOOLS_DIR/latest/bin"
 PLATFORM_TOOLS_DIR="$ANDROID_SDK/platform-tools"
 PLATFORM_TOOLS_BIN="$PLATFORM_TOOLS_DIR"
 
-FLUTTER_SDK="$HOME/flutter"
+FLUTTER_SDK="$home/flutter"
 FLUTTER_BIN="$FLUTTER_SDK/bin"
 
 # Install flutter from github
 git clone https://github.com/flutter/flutter.git -b stable "$FLUTTER_SDK"
+chown -R "$user":"$user" "$FLUTTER_SDK"
 
 # Install android studio dependencies
 
