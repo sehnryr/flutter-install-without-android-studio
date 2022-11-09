@@ -17,3 +17,9 @@ export PATH="/opt/flutter-sdk/bin:$PATH"
 export PATH="/opt/android-sdk/platform-tools:$PATH"
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin:$PATH"
 ```
+
+You can run the script simply with the following command:
+
+```bash
+curl -s "https://raw.githubusercontent.com/sehnryr/flutter-install-without-android-studio/main/install.sh" | sudo sh
+```
