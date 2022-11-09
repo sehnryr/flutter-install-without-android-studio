@@ -19,7 +19,7 @@ if [ -f /etc/fedora-release ]; then
     sudo dnf install -y clang cmake gtk3-devel ninja-build
 # else if ran on ubuntu, install clang cmake libgtk-3-dev ninja-build
 elif [ -f /etc/lsb-release ]; then
-    sudo apt install -y clang cmake libgtk-3-dev ninja-build default-jre git
+    sudo apt install -y clang cmake libgtk-3-dev ninja-build
 else
     echo "Your OS is not supported"
     exit 1
