@@ -34,11 +34,11 @@ CMDLINE_TOOLS_BIN="$CMDLINE_TOOLS_DIR/latest/bin"
 PLATFORM_TOOLS_DIR="$ANDROID_SDK/platform-tools"
 PLATFORM_TOOLS_BIN="$PLATFORM_TOOLS_DIR"
 
-FLUTTER_SDK="$INSTALL_DIR/flutter-sdk"
+FLUTTER_SDK="$HOME/flutter"
 FLUTTER_BIN="$FLUTTER_SDK/bin"
 
 # Install flutter from github
-git clone https://github.com/flutter/flutter.git -b stable $FLUTTER_SDK
+git clone https://github.com/flutter/flutter.git -b stable "$FLUTTER_SDK"
 
 # Install android studio dependencies
 
