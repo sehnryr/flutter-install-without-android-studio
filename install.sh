@@ -12,14 +12,14 @@ if [ "$1" = "-y" ]; then
     accept_licenses=1
 fi
 
-# install flutter dependencies depending on the OS
+# install dependencies depending on the OS
 
 # if ran on fedora, install clang cmake gtk3-devel ninja-build
 if [ -f /etc/fedora-release ]; then
     sudo dnf install -y clang cmake gtk3-devel ninja-build
 # else if ran on ubuntu, install clang cmake libgtk-3-dev ninja-build
 elif [ -f /etc/lsb-release ]; then
-    sudo apt install -y clang cmake libgtk-3-dev ninja-build
+    sudo apt install -y clang cmake libgtk-3-dev ninja-build default-jre git
 else
     echo "Your OS is not supported"
     exit 1
