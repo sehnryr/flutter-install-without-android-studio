@@ -18,8 +18,8 @@ fi
 # if ran on fedora, install clang cmake gtk3-devel ninja-build
 if [ -f /etc/fedora-release ]; then
     sudo dnf install -y clang cmake gtk3-devel ninja-build
-    user=$USER
-    home=$HOME
+    user=$SUDO_USER
+    home=$(getent passwd "$SUDO_USER" | cut -d: -f6)
 # else if ran on ubuntu, install clang cmake libgtk-3-dev ninja-build
 elif [ -f /etc/lsb-release ]; then
     sudo apt install -y clang cmake libgtk-3-dev ninja-build
